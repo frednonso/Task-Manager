@@ -27,6 +27,8 @@ class UpdateTaskRequest extends FormRequest
             //
             "title" => ["sometimes", "required", "max:255"],
             "is_done" => ["sometimes", "boolean"],
+            "schedule_at" => ["sometimes","nullable", "date"],
+            "due_at" => ["sometimes","nullable", "date"],
             // i think u can use a policy here
             "project_id" => ["nullable", Rule::in(Auth::user()->memberships->pluck("id"))
             ]

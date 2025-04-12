@@ -39,7 +39,7 @@ class MembersController extends Controller
         // u can use a policy here
         abort_if($project->user_id === $member, 400, "Cannot remove creator from project");
 
-        Gate::authorize("view", $member);
+        // Gate::authorize("delete", $member);
 
 
         $project->members()->detach([$member]);

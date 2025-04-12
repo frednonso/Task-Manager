@@ -3,11 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
-
-class StoreTaskRequest extends FormRequest
+class StoreCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +23,7 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             //
-            "title" => ["required", "max:255"],
-            "schedule_at" => ["nullable", "date"],
-            "due_at" => ["nullable", "date"],
-            // i think u can use a policy here
-            "project_id" => ["nullable", Rule::in(Auth::user()->memberships->pluck("id"))
-            ]
-
+            "comment" => ["required", "max:255"]
         ];
     }
 }
